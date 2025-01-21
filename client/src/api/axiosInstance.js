@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL : 'http://localhost:5000',
-});
+    baseURL : import.meta.env.VITE_SERVER_URL,
+})
 
 axiosInstance.interceptors.request.use(config=> {
     const accessToken = JSON.parse(sessionStorage.getItem('accessToken')) || "";
